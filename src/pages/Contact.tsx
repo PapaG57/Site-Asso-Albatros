@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
               <h2>Envoyez-nous un message</h2>
               <form 
                 className="contact-form" 
-                action="https://formspree.io/f/votre_id_ici" 
+                action="https://formspree.io/f/xgodonpj" 
                 method="POST"
               >
                 <div className="form-group">
