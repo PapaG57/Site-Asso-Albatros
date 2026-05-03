@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# Association Albatros - Site Web Officiel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![React](https://img.shields.io/badge/React-19-61dafb.svg)
+![Vite](https://img.shields.io/badge/Vite-6-646cff.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6.svg)
 
-Currently, two official plugins are available:
+Ce projet est le site web officiel de l'**Association Albatros**, une organisation humanitaire basée au Cameroun dédiée à la promotion, la recherche et la vulgarisation de l'aide sociale pour les personnes en situation de précarité extrême ou d'exclusion sociale.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎯 Objectifs du Projet
 
-## React Compiler
+Le site a été conçu pour briser l'invisibilité des personnes vulnérables à travers :
+- Une présentation claire des missions et de la vision de l'association.
+- Un espace d'actualités (Blog) pour suivre les actions sur le terrain.
+- Un système de collecte de dons pour soutenir les projets.
+- Un portail d'adhésion et de contact pour mobiliser les bénévoles et membres.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Stack Technique
 
-## Expanding the ESLint configuration
+- **Frontend :** [React 19](https://react.dev/) avec [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool :** [Vite 6](https://vitejs.dev/)
+- **Routage :** [React Router 7](https://reactrouter.com/)
+- **Stylisation :** Vanilla CSS (Architecture modulaire par composant)
+- **Formulaires :** Intégration [Formspree](https://formspree.io/) pour la gestion des contacts sans backend.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🎨 Charte Graphique
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Le design respecte l'identité nationale du Cameroun avec une utilisation élégante des couleurs :
+- **Vert (#007A5E)** : Espoir et croissance.
+- **Rouge (#CE1126)** : Unité et force.
+- **Jaune (#FCD116)** : Prospérité.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+**Spécificités typographiques :** Pour renforcer le sérieux et le professionnalisme, tous les textes de paragraphes sont justifiés avec césure automatique (`hyphens: auto`).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Structure du Projet
+
+```text
+src/
+├── assets/         # Images et ressources statiques
+├── components/     # Composants réutilisables (Header, Footer, etc.)
+├── data/           # Données statiques (Articles de blog)
+├── layouts/        # Gabarits de pages (MainLayout)
+├── pages/          # Composants de pages (Home, About, Missions, etc.)
+├── App.tsx         # Configuration des routes
+└── index.css       # Styles globaux et variables CSS
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Installation et Lancement
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prérequis
+- [Node.js](https://nodejs.org/) (Version 18 ou supérieure)
+- npm ou yarn
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+```bash
+# Cloner le projet ou extraire l'archive
+cd "Site Asso Albatros"
+
+# Installer les dépendances
+npm install
 ```
+
+### Développement
+```bash
+# Lancer le serveur de développement
+npm run dev
+```
+Le site sera accessible sur `http://localhost:5173`.
+
+### Production
+```bash
+# Générer le build optimisé
+npm run build
+```
+Les fichiers prêts pour le déploiement seront générés dans le dossier `/dist`.
+
+## 📧 Configuration du Contact
+
+Pour rendre le formulaire de contact opérationnel :
+1. Créez un compte sur Formspree.
+2. Créez un formulaire et copiez l'ID fourni.
+3. Remplacez l'ID dans `src/pages/Contact.tsx` à la ligne `action="https://formspree.io/f/VOTRE_ID"`.
+
+---
+
+**Développé par [FG DEVELOPPEMENT](https://www.fgdeveloppement.com)**
+*© 2026 Association Albatros. Tous droits réservés.*
