@@ -1,6 +1,31 @@
+import { useForm, ValidationError } from '@formspree/react';
 import './Contact.css';
 
 const Contact: React.FC = () => {
+  const [state, handleSubmit] = useForm("xgodonpj");
+
+  if (state.succeeded) {
+    return (
+      <div className="contact-page">
+        <section className="page-header">
+          <div className="container">
+            <h1>Contact & Adhésion</h1>
+            <div className="title-underline"></div>
+          </div>
+        </section>
+        <section className="section-padding">
+          <div className="container">
+            <div className="success-message">
+              <h2>Merci pour ton message !</h2>
+              <p>Nous avons bien reçu ta demande et l'équipe de l'Albatros te répondra dans les plus brefs délais.</p>
+              <button onClick={() => window.location.reload()} className="btn btn-secondary">Envoyer un autre message</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="contact-page">
       <section className="page-header">
@@ -16,18 +41,16 @@ const Contact: React.FC = () => {
           <div className="contact-grid">
             <div className="contact-form-container">
               <h2>Envoyez-nous un message</h2>
-              <form 
-                className="contact-form" 
-                action="https://formspree.io/f/xgodonpj" 
-                method="POST"
-              >
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Nom complet</label>
                   <input type="text" name="name" id="name" placeholder="Votre nom" required />
+                  <ValidationError prefix="Name" field="name" errors={state.errors} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
                   <input type="email" name="email" id="email" placeholder="votre@email.com" required />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="subject">Sujet</label>
@@ -37,12 +60,16 @@ const Contact: React.FC = () => {
                     <option value="benevolat">Devenir bénévole</option>
                     <option value="autre">Autre</option>
                   </select>
+                  <ValidationError prefix="Subject" field="subject" errors={state.errors} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Message</label>
                   <textarea name="message" id="message" rows={5} placeholder="Votre message..." required></textarea>
+                  <ValidationError prefix="Message" field="message" errors={state.errors} />
                 </div>
-                <button type="submit" className="btn btn-secondary btn-block">Envoyer le message</button>
+                <button type="submit" className="btn btn-secondary btn-block" disabled={state.submitting}>
+                  {state.submitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                </button>
               </form>
             </div>
 
@@ -66,8 +93,8 @@ const Contact: React.FC = () => {
               <div className="membership-card">
                 <h3>Devenir Membre</h3>
                 <p className="text-content">
-                  En devenant membre de l'Association Albatros, vous participez activement à la lutte 
-                  contre l'exclusion. Vous recevrez nos rapports d'activité et serez convié à nos 
+                  En devenant membre de l'Association Albatros, tu participes activement à la lutte 
+                  contre l'exclusion. Tu recevras nos rapports d'activité et seras convié à nos 
                   assemblées générales.
                 </p>
                 <p className="membership-fee">Cotisation annuelle : 15 000 FCFA</p>
