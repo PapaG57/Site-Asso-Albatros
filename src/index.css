@@ -1,0 +1,90 @@
+:root {
+  /* Couleurs du drapeau Camerounais */
+  --color-green: #007A5E;
+  --color-red: #CE1126;
+  --color-yellow: #FCD116;
+  
+  /* Couleurs neutres et accents */
+  --color-dark: #1A1A1A;
+  --color-light: #F9F9F9;
+  --color-white: #FFFFFF;
+  --color-gray: #E0E0E0;
+  
+  /* Typographie */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Règle mandatée : Texte justifié et césure automatique */
+p, .text-content {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: #b00e20;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--color-green);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover {
+  background-color: #00634c;
+  transform: translateY(-2px);
+}
