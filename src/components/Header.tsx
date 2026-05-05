@@ -25,11 +25,9 @@ const Header: React.FC = () => {
             <li><Link to="/missions" className="nav-link">Missions</Link></li>
             <li><Link to="/actualites" className="nav-link">Actualités</Link></li>
             <li><Link to="/contact" className="nav-link">Contact</Link></li>
+            <li><Link to="/faire-un-don" className="nav-link nav-btn-don">Faire un don</Link></li>
           </ul>
         </nav>
-        <div className="header-actions">
-          <Link to="/faire-un-don" className="btn btn-primary">Faire un don</Link>
-        </div>
       </div>
     </header>
   );

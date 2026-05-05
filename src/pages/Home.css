@@ -1,111 +1,196 @@
-.hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-  background-size: cover;
-  background-position: center;
-  height: 80vh;
+.home {
+  background-color: var(--color-green);
+}
+/* Hero Mockup Style */
+.hero-mockup {
+  padding: 1rem 0 2rem 0; /* Reduced bottom padding to bring titles closer */
   display: flex;
-  align-items: center;
-  color: var(--color-white);
+  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
-.hero-content {
-  max-width: 800px;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.1;
-  border-left: 8px solid var(--color-red);
-  padding-left: 1.5rem;
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  color: var(--color-gray);
-  max-width: 600px;
-}
-
-.hero-btns {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.section-padding {
-  padding: 6rem 0;
-}
-
-.section-title {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-.section-title h2 {
-  font-size: 2.5rem;
-  color: var(--color-dark);
-}
-
-.title-underline {
-  width: 80px;
-  height: 5px;
-  background: linear-gradient(to right, var(--color-green), var(--color-red), var(--color-yellow));
+.hero-frame {
+  max-width: 1650px;
+  width: 98%;
   margin: 0 auto;
-}
-
-.mission-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.mission-text p {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-}
-
-.mission-highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.highlight-card {
+  position: relative;
   background-color: var(--color-white);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  border-bottom: 4px solid var(--color-green);
-  transition: transform 0.3s ease;
+  padding: 10px;
+  /* Soft frame shadow */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.highlight-card:nth-child(2) {
-  border-bottom-color: var(--color-red);
+/* The "lifted corners" effect - Shadows strong at edges, disappearing in the middle */
+.hero-frame:before,
+.hero-frame:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 15px;
+  width: 40%;
+  max-width: 350px;
+  height: 20px;
+  background: transparent;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.9);
 }
 
-.highlight-card:hover {
-  transform: translateY(-5px);
+.hero-frame:before {
+  left: 15px;
+  transform: rotate(-4deg); /* Lift left corner */
 }
 
-.highlight-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.hero-frame:after {
+  right: 15px;
+  transform: rotate(4deg); /* Lift right corner */
+}
+
+/* Remove any central shadow to let the middle touch the background visually */
+.hero-caption::after {
+  display: none;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  max-height: 55vh; /* Restored to a balanced height */
+  object-fit: cover;
   display: block;
 }
 
-.highlight-card h4 {
+.hero-caption {
+  background-color: #1a1a1a;
+  color: var(--color-white);
+  padding: 0.8rem 2rem;
+  text-align: center;
   font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  font-weight: 300;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
+.caption-chevron {
+  font-size: 2.8rem;
+  color: var(--color-yellow);
+  opacity: 0.9;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.caption-accent {
+  font-weight: 700;
+  color: var(--color-yellow);
+}
+
+/* Services Grid */
+.services-grid-section {
+  padding: 2rem 0 0.5rem 0; /* Playing with padding here to adjust position */
+  margin-top: 1rem; /* Adjusting the section itself */
+  color: var(--color-white);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.service-col {
+  padding: 0 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-col:last-child {
+  border-right: none;
+}
+
+.service-col h3 {
+  font-size: 1.5rem; /* Increased size for better visibility */
+  margin-bottom: 0.7rem;
+  font-weight: 700; /* Bolder to stand out */
+  text-transform: uppercase;
+  letter-spacing: 2px; /* More institutional feel */
+  color: var(--color-white);
+}
+
+.service-col p {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.service-icon-circle {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.service-icon-circle:hover {
+  background-color: var(--color-yellow);
+  border-color: var(--color-yellow);
+  color: var(--color-dark);
+}
+
+.arrow {
+  font-size: 1.2rem;
+}
+
+/* Mission Intro Refined */
+.mission-intro {
+  background-color: var(--color-light); /* Changed to light for better contrast with footer */
+  padding: 10rem 0; /* More vertical space */
+  color: var(--color-dark);
+}
+
+.mission-intro h2 {
+  color: var(--color-green); /* Use brand color for headers on light background */
+}
+
+.mission-content-alt {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mission-content-alt p {
+  margin-bottom: 2.5rem;
+  font-size: 1.15rem;
+  line-height: 2; /* Airy line height */
+  color: #444;
+}
+
+.mission-content-alt p:last-child {
+  margin-bottom: 0;
+}
+
+
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
   }
-  
-  .mission-grid {
+  .service-col {
+    border-right: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+  }
+  .hero-caption {
+    font-size: 1.1rem;
   }
 }

@@ -2,13 +2,13 @@
   background-color: var(--color-dark);
   color: var(--color-white);
   padding: 4rem 0 0;
-  margin-top: 4rem;
+  text-align: center; /* Centrage global du texte */
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr 1fr; /* Passage à 3 colonnes égales pour la symétrie */
+  gap: 3rem;
   padding-bottom: 4rem;
 }
 
@@ -21,32 +21,132 @@
 .footer-info p {
   color: #ccc;
   max-width: 400px;
+  margin: 0 auto; /* Centrage du paragraphe d'info */
 }
 
 .footer h4 {
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
-  border-left: 3px solid var(--color-green);
-  padding-left: 10px;
+  /* Suppression de la bordure gauche pour le centrage */
+  padding-bottom: 8px;
+  position: relative;
+  display: inline-block;
 }
 
-.footer-links ul li {
-  margin-bottom: 0.8rem;
+/* Ajout d'une bordure basse centrée à la place de la bordure gauche */
+.footer h4::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: var(--color-green);
 }
 
-.footer-links ul li a {
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le bloc de liens dans sa colonne */
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligne les liens à gauche au sein du bloc centré */
+  gap: 0.8rem;
+}
+
+.footer-links-list li a {
   color: #ccc;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 15px; /* Espace pour la petite puce personnalisée au survol */
 }
 
-.footer-links ul li a:hover {
+.footer-links-list li a::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--color-yellow);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.footer-links-list li a:hover {
   color: var(--color-white);
-  padding-left: 5px;
+  padding-left: 20px;
 }
 
-.footer-contact p {
-  color: #ccc;
-  margin-bottom: 0.5rem;
+.footer-links-list li a:hover::before {
+  opacity: 1;
 }
+
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le bloc de contact dans sa colonne */
+}
+
+.footer-contact-items-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligne les items à gauche au sein du bloc centré */
+  gap: 1rem;
+}
+
+.footer-contact-item {
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.footer-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #ccc;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-contact-link:hover {
+  color: var(--color-yellow);
+}
+
+.footer-icon-container {
+  flex-shrink: 0;
+  width: 24px; /* Largeur fixe pour l'alignement vertical des labels */
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-icon {
+  width: 20px;
+  height: auto;
+}
+
+.footer-email-at {
+  font-weight: 800;
+  color: var(--color-yellow);
+  font-size: 1.2rem;
+}
+
+.footer-icon-envelope {
+  color: var(--color-yellow);
+}
+
+
 
 .footer-bottom {
   background-color: #111;
@@ -58,16 +158,56 @@
 
 .footer-bottom p {
   color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.footer-credit a {
-  color: var(--color-yellow);
+.footer-mini-icon {
+  height: 22px; /* Légèrement plus grand pour la lisibilité du logo */
+  width: auto;
+  vertical-align: middle;
+  filter: none; /* On garde les couleurs originales du logo */
+  opacity: 1;
+}
+
+.footer-credit {
+  display: inline-flex;
+  align-items: center;
+}
+
+.credit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-white); /* Changé en blanc */
   font-weight: 600;
   text-decoration: none;
+  vertical-align: middle;
+  opacity: 0.8; /* Légère opacité pour rester discret */
+  transition: all 0.3s ease;
+}
+
+.credit-logo {
+  height: 24px;
+  width: auto;
+  filter: none; /* Suppression du filtre puisque le logo est blanc */
+  transition: transform 0.3s ease;
+}
+
+.credit-link:hover {
+  opacity: 1;
+  color: var(--color-yellow); /* Rappel du jaune au survol pour le lien */
+}
+
+.credit-link:hover .credit-logo {
+  transform: scale(1.1); /* Petit effet d'agrandissement au survol */
 }
 
 .footer-credit a:hover {
-  text-decoration: underline;
+  text-decoration: none; /* On gère le hover via le logo */
 }
 
 @media (max-width: 768px) {

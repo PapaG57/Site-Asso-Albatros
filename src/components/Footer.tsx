@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="footer-links">
           <h4>Liens Rapides</h4>
-          <ul>
+          <ul className="footer-links-list">
             <li><Link to="/a-propos">Qui sommes-nous ?</Link></li>
             <li><Link to="/missions">Nos Missions</Link></li>
             <li><Link to="/actualites">Actualités</Link></li>
@@ -23,15 +23,46 @@ const Footer: React.FC = () => {
         </div>
         <div className="footer-contact">
           <h4>Contact</h4>
-          <p>Email: contact@albatros-asso.cm</p>
-          <p>Localisation: Cameroun</p>
+          <div className="footer-contact-items-wrapper">
+            <div className="footer-contact-item">
+              <a href="mailto:florentgerard@fgdeveloppement.com" className="footer-contact-link">
+                <span className="footer-icon-container">
+                  <span className="footer-email-at">@</span>
+                </span>
+                <span>florentgerard@fgdeveloppement.com</span>
+              </a>
+            </div>
+            <div className="footer-contact-item">
+              <span className="footer-icon-container">
+                <img src="/emplacement.png" alt="Localisation" className="footer-icon" />
+              </span>
+              <span>Village de Songloulou, région du Littoral, Cameroun</span>
+            </div>
+            <div className="footer-contact-item">
+              <Link to="/contact" className="footer-contact-link">
+                <span className="footer-icon-container">
+                  <svg className="footer-icon-envelope" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1c40f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6" stroke="#e67e22"></polyline>
+                  </svg>
+                </span>
+                <span>Nous écrire</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
       <div className="footer-bottom">
         <div className="container">
           <p>
-            &copy; {new Date().getFullYear()} Association Albatros. Tous droits réservés.
-            <span className="footer-credit"> - by <a href="https://www.fgdeveloppement.com" target="_blank" rel="noopener noreferrer">FG DEVELOPPEMENT</a></span>
+            &copy; {new Date().getFullYear()} <img src="/favicon-32x32.png" alt="" className="footer-mini-icon" /> Association Albatros. Tous droits réservés.
+            <span className="footer-credit"> - by 
+              <a href="https://www.fgdeveloppement.com" target="_blank" rel="noopener noreferrer" className="credit-link">
+                <img src="/New_Logo_FG_DEV_no_background_blanc.png" alt="Logo FG DEV" className="credit-logo" />
+                FG Developpement
+              </a>
+            </span>
+
           </p>
         </div>
       </div>
