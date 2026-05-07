@@ -30,6 +30,7 @@ Ce fichier contient les directives architecturales, les conventions de style et 
 
 ### 4. Automatisation & Crédits
 - **Footer :** Refonte complète avec alignement rigoureux des colonnes, menus (Contact et Liens Rapides) harmonisés, icônes standardisées et intégration d'un lien email (`mailto`) fonctionnel.
+- **Modale Carte :** Implémentation d'une fenêtre modale interactive pour la localisation (Village de Songloulou), accessible via un bouton "carte" avec info-bulle personnalisée dans le footer.
 - **Copyright Dynamique :** L'année dans le footer s'actualise automatiquement chaque 1er janvier.
 - **Crédit Développeur :** Lien cliquable vers [FG DEVELOPPEMENT](https://www.fgdeveloppement.com) intégré au footer.
 - **Localisation Officielle :** Village de Songloulou, région du Littoral, département de la Sanaga-Maritime, Cameroun.

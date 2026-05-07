@@ -216,3 +216,99 @@
     gap: 2.5rem;
   }
 }
+
+/* --- Styles de la Modale Carte --- */
+.footer-map-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: var(--color-white);
+  width: 100%;
+  max-width: 800px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: var(--color-dark);
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: var(--color-green);
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  padding: 25px 30px;
+  background-color: var(--color-green);
+  color: white;
+  text-align: left;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--color-yellow);
+}
+
+.modal-header p {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  text-align: left; /* Respect de la consigne de texte justifié n'est pas nécessaire ici, mais on garde la cohérence */
+}
+
+.modal-body {
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.modal-body iframe {
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}

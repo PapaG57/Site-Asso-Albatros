@@ -1,7 +1,12 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer: React.FC = () => {
+  const [isMapOpen, setIsMapOpen] = useState(false);
+
+  const toggleMap = () => setIsMapOpen(!isMapOpen);
+
   return (
     <footer className="footer">
       <div className="container footer-grid">
@@ -33,10 +38,16 @@ const Footer: React.FC = () => {
               </a>
             </div>
             <div className="footer-contact-item">
-              <span className="footer-icon-container">
-                <img src="/emplacement.png" alt="Localisation" className="footer-icon" />
-              </span>
-              <span>Village de Songloulou, région du Littoral, Cameroun</span>
+              <button 
+                onClick={toggleMap} 
+                className="footer-contact-link footer-map-btn"
+                title="cliquer pour ouvrir la carte"
+              >
+                <span className="footer-icon-container">
+                  <img src="/emplacement.png" alt="Localisation" className="footer-icon" />
+                </span>
+                <span>Village de Songloulou, Cameroun</span>
+              </button>
             </div>
             <div className="footer-contact-item">
               <Link to="/contact" className="footer-contact-link">
@@ -52,6 +63,32 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Modale Carte */}
+      {isMapOpen && (
+        <div className="modal-overlay" onClick={toggleMap}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={toggleMap} aria-label="Fermer la carte">&times;</button>
+            <div className="modal-header">
+              <h3>Localisation de l'Association</h3>
+              <p>Village de Songloulou, Région du Littoral, Cameroun</p>
+            </div>
+            <div className="modal-body">
+              <iframe 
+                title="Carte de l'Association"
+                src="https://www.google.com/maps?q=4.137977,10.472217&z=15&t=k&output=embed" 
+                width="100%" 
+                height="450" 
+                style={{ border: 0, borderRadius: '8px' }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="footer-bottom">
         <div className="container">
           <p>
