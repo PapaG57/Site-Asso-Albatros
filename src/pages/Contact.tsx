@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
                 <h3>Nos Coordonnées</h3>
                 <div className="info-item">
                   <span className="info-icon">
-                    <img src="/emplacement.png" alt="Localisation" style={{ width: '24px', height: 'auto' }} />
+                    <img src={`${import.meta.env.BASE_URL}emplacement.png`} alt="Localisation" style={{ width: '24px', height: 'auto' }} />
                   </span>
                   <p>Village de Songloulou, région du Littoral et le département de la Sanaga-Maritime, Cameroun</p>
                 </div>

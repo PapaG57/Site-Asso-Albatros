@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -8,7 +7,7 @@ const Home: React.FC = () => {
         <div className="container">
           <div className="hero-frame">
             <img 
-              src="/hero.png" 
+              src={`${import.meta.env.BASE_URL}hero.png`} 
               alt="Enfants du Cameroun souriants" 
               className="hero-image"
             />

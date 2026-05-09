@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                 title="cliquer pour ouvrir la carte"
               >
                 <span className="footer-icon-container">
-                  <img src="/emplacement.png" alt="Localisation" className="footer-icon" />
+                  <img src={`${import.meta.env.BASE_URL}emplacement.png`} alt="Localisation" className="footer-icon" />
                 </span>
                 <span>Village de Songloulou, Cameroun</span>
               </button>
@@ -92,10 +92,10 @@ const Footer: React.FC = () => {
       <div className="footer-bottom">
         <div className="container">
           <p>
-            &copy; {new Date().getFullYear()} <img src="/favicon-32x32.png" alt="" className="footer-mini-icon" /> Association Albatros. Tous droits réservés.
+            &copy; {new Date().getFullYear()} <img src={`${import.meta.env.BASE_URL}favicon-32x32.png`} alt="" className="footer-mini-icon" /> Association Albatros. Tous droits réservés.
             <span className="footer-credit"> - by 
               <a href="https://www.fgdeveloppement.com" target="_blank" rel="noopener noreferrer" className="credit-link">
-                <img src="/New_Logo_FG_DEV_no_background_blanc.png" alt="Logo FG DEV" className="credit-logo" />
+                <img src={`${import.meta.env.BASE_URL}New_Logo_FG_DEV_no_background_blanc.png`} alt="Logo FG DEV" className="credit-logo" />
                 FG Developpement
               </a>
             </span>

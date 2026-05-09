@@ -8,7 +8,7 @@ const Header: React.FC = () => {
         <div className="logo">
           <Link to="/">
             <div className="logo-brand">
-              <img src="/Logo-Albatros.png" alt="Logo Albatros" className="logo-img" />
+              <img src={`${import.meta.env.BASE_URL}Logo-Albatros.png`} alt="Logo Albatros" className="logo-img" />
               <span className="logo-text">ALBATROS</span>
             </div>
             <div className="logo-stripe">
