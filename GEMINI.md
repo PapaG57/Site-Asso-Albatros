@@ -35,11 +35,18 @@ Ce fichier contient les directives architecturales, les conventions de style et 
 - **Crédit Développeur :** Lien cliquable vers [FG DEVELOPPEMENT](https://www.fgdeveloppement.com) intégré au footer.
 - **Localisation Officielle :** Village de Songloulou, région du Littoral, département de la Sanaga-Maritime, Cameroun.
 
+### 5. Build & Déploiement (Mai 2026)
+- **Configuration Sous-dossier :** Paramétrage de Vite (`base: '/ASSO_ALBATROS/'`) pour un hébergement en sous-répertoire.
+- **Routage Serveur :** Création d'un fichier `.htaccess` dans le dossier `dist/` pour gérer les redirections de React Router (SPA) sur serveur Apache.
+- **Gestion des Assets :** Migration des chemins d'images vers des URL dynamiques utilisant `import.meta.env.BASE_URL` pour garantir la visibilité des images quel que soit le dossier de déploiement.
+
 ## 📌 Directives de Développement
 - **Style :** Utilise exclusivement du **Vanilla CSS** (variables CSS dans `index.css`).
 - **Cohérence Visuelle :** Maintenir le nouveau style institutionnel (fond vert pour les sections principales, titres en majuscules).
 - **Typographie :** Garde la règle de justification et de césure pour tout nouveau bloc de texte.
 - **Navigation :** Utilise systématiquement le composant `Link` de `react-router-dom` pour les liens internes.
+- **Images & Assets :** Toujours préfixer les chemins d'images avec `${import.meta.env.BASE_URL}` pour assurer la compatibilité avec le déploiement en sous-dossier.
+- **Build :** Après chaque build, vérifier la présence du fichier `.htaccess` dans `dist/`.
 
 ---
 
